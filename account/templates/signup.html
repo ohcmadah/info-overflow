@@ -1,0 +1,40 @@
+<section id="content">
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <div class="left-box">
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <input type="text" name="id" placeholder="ID">
+            </div>
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <input type="text" name="name" placeholder="NAME">
+            </div>
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <input type="text" name="email" placeholder="E-MAIL">
+            </div>
+        </div>
+        <div class="right-box">
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <select name="department">
+                    <option value="Software">SOFTWARE</option>
+                    <option value="Web Solution">WEB SOLUTION</option>
+                    <option value="Design">DESIGN</option>
+                </select>
+            </div>
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <input type="password" name="password" placeholder="PASSWORD">
+            </div>
+            <div class="sign-up-input">
+                <div class="icon"></div>
+                <input type="password" name="password-check" placeholder="PASSWORD CHECK">
+            </div>
+        </div>
+        <div class="sign-up">
+            <input type="submit" value="sign up">
+        </div>
+    </form>
+</section>
