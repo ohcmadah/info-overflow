@@ -13,7 +13,7 @@
             {% for field in form %}
             <div class="sign-up-input {% if field.errors|length > 0 %}has-error{% endif %}">
                 <div class="icon">
-                    <img src="{% static 'img/name.png' %}" />
+                    <img class="{{ field.name }}" />
                 </div>
                 {% if field.label == "Department" %}
                 <select name="department">
