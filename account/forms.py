@@ -5,28 +5,16 @@ from django.utils.translation import ugettext_lazy as _
 from .models import User, UserManager
 
 class UserCreationForm(forms.ModelForm):
-    email = forms.EmailField(
-        label=_('Email'),
-        required=True,
-        widget=forms.EmailField()
-    )
-    id = forms.CharField(
-        label=_('ID'),
-        required=True,
-        widget=forms.CharField()
-    )
-    department = forms.CharField(
-        label=_('Department'),
-        required=True,
-        widget=forms.CharField()
-    )
+    email = forms.EmailField()
+    id = forms.CharField()
+    department = forms.CharField()
     password1 = forms.CharField(
         label=_('Password'),
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput
     )
     password2 = forms.CharField(
         label=_('Password confirmation'),
-        widget=forms.PasswordInput()
+        widget=forms.PasswordInput
     )
 
     class Meta:
