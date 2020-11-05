@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>Info Overflow</title>
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+        {% block scripts %}
+        {% endblock scripts %}
+
+        {% block css %}
+        {% endblock css %}
     </head>
     <body>
         <nav>
 
         </nav>
 
-        <main>
-            {% block content %}
-            {% endblock %}
-        </main>
+        {% block content %}
+        {% endblock %}
     </body>
 </html>
