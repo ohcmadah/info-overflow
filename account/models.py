@@ -19,7 +19,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, id, name, email, department, password, last_name, first_name):
+    def create_superuser(self, id, name, email, department, password):
         user = self.create_user(id, name, email, department, password)
         user.is_superuser = True
         user.save(using=self._db)
@@ -31,6 +31,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     id = models.CharField(
         verbose_name=_('id'),
         max_length=20,
+        unique=True,
+        primary_key=True
+    )
+    name = models.CharField(
+        verbose_name=_('name'),
+        max_length=50,
         unique=True
     )
     email = models.EmailField(
@@ -42,8 +48,11 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_('department'),
         max_length=20,
     )
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'id'
-    REQUIRED_FIELDS = ['id', 'email', 'department']
+    REQUIRED_FIELDS = ['name', 'email', 'department']
 
     class Meta:
         verbose_name = _('user')
@@ -52,8 +61,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.id
 
-    def get_full_name(self):
-        return self.email
+    def has_perm(self, perm, obj=None):
+        return True
 
-    def get_short_name(self):
-        return self.email
+    def has_module_perms(self, app_label):
+        return True
+
+    @property
+    def is_staff(self):
+        return self.is_superuser

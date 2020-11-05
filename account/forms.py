@@ -8,60 +8,30 @@ class UserCreationForm(forms.ModelForm):
     email = forms.EmailField(
         label=_('Email'),
         required=True,
-        widget=forms.EmailField(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Email address'),
-                'required': 'True',
-            }
-        )
+        widget=forms.EmailField()
     )
     id = forms.CharField(
         label=_('ID'),
         required=True,
-        widget=forms.CharField(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('ID'),
-                'required': 'True',
-            }
-        )
+        widget=forms.CharField()
     )
     department = forms.CharField(
         label=_('Department'),
         required=True,
-        widget=forms.CharField(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Department'),
-                'required': 'True',
-            }
-        )
+        widget=forms.CharField()
     )
     password1 = forms.CharField(
         label=_('Password'),
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Password'),
-                'required': 'True',
-            }
-        )
+        widget=forms.PasswordInput()
     )
     password2 = forms.CharField(
         label=_('Password confirmation'),
-        widget=forms.PasswordInput(
-            attrs={
-                'class': 'form-control',
-                'placeholder': _('Password confirmation'),
-                'required': 'True',
-            }
-        )
+        widget=forms.PasswordInput()
     )
 
     class Meta:
         model = User
-        fields = ('email', 'nickname')
+        fields = ('id', 'name', 'email', 'department')
 
     def clean_password2(self):
         # 두 비밀번호 입력 일치 확인
@@ -88,7 +58,7 @@ class UserChangeForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'last_name', 'first_name', 'is_active', 'is_superuser')
+        fields = ('email', 'password', 'is_superuser')
 
     def clean_password(self):
         return self.initial["password"]
