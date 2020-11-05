@@ -43,8 +43,7 @@ class UserCreationForm(forms.ModelForm):
 
     def save(self, commit=True):
         # Save the provided password in hashed format
-        user = super(UserCreationForm, self).save(commit=False)
-        user.email = UserManager.normalize_email(self.cleaned_data['email'])
+        user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         if commit:
             user.save()
@@ -52,13 +51,11 @@ class UserCreationForm(forms.ModelForm):
 
 class UserChangeForm(forms.ModelForm):
     # 비밀번호 변경 폼
-    password = ReadOnlyPasswordHashField(
-        label=_('Password')
-    )
+    password = ReadOnlyPasswordHashField()
 
     class Meta:
         model = User
-        fields = ('email', 'password', 'is_superuser')
+        fields = ('id', 'name', 'email', 'department', 'password', 'is_superuser', 'is_active')
 
     def clean_password(self):
         return self.initial["password"]

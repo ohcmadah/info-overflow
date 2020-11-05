@@ -1,14 +1,11 @@
 from django.shortcuts import render
-from django.contrib.auth.models import User
+from .forms import UserCreationForm
+from .models import UserManager
 
 # SIGN UP
 def signup(request):
     if request.method == 'POST':
-        for p in request.POST:
-            if p != "":
-                if p['password'] == p['password-check']:
-                    user = User.objects.create_user(
-                        username=p['name'],
-                        password=p['password']
-
-                    )
+        user_form = UserCreationForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            UserManager.create_user(user)
