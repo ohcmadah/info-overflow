@@ -1,5 +1,6 @@
-const btnSignUp = document.querySelector(".btn-sign-up")
-const btnSignIn = document.querySelector(".btn-sign-in")
+const btnSignUp = document.querySelector(".btn-sign-up");
+const btnSignIn = document.querySelector(".btn-sign-in");
+const btnLogo = document.querySelector(".logo");
 
 function setEvent() {
     if (btnSignIn) {
@@ -10,9 +11,15 @@ function setEvent() {
     }
     if (btnSignUp) {
         btnSignUp.addEventListener('click', event => {
-        event.preventDefault();
-        location.href = '/signup';
-    });
+            event.preventDefault();
+            location.href = '/signup';
+        });
+    }
+    if (btnLogo) {
+        btnLogo.addEventListener('click', event => {
+            event.preventDefault();
+            location.href = '/';
+        })
     }
 }
 
