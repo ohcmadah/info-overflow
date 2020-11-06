@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Nav Container */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20vh;
+    margin: 0px 65px;
+    padding: 0px;
+}
+
+/* List Style */
+nav li {
+    list-style: none;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    width: 15vw;
+}
+.logo img {
+    width: 100%;
+}
+
+/* Nav Button */
+nav button {
+    width: 10vw;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #F0B791;
+    border: 0px;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav button:focus {
+    outline: none;
+}

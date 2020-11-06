@@ -1,9 +1,5 @@
-html, body {
-    height: 100%;
-}
-
 #container {
-    height: 100%;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +10,7 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .input-box {
@@ -118,6 +115,10 @@ input[type='password']::-webkit-input-placeholder {
 }
 
 /* Button Sign Up */
+.sign-up {
+    margin-bottom: 60px;
+    margin-top: 6vh;
+}
 .sign-up input[type='submit'] {
     width: 32vw;
     height: 80px;
@@ -128,7 +129,6 @@ input[type='password']::-webkit-input-placeholder {
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
-    margin-top: 9vh;
 }
 
 /* Media Query */
