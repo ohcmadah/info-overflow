@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Info Overflow</title>
+
+        <link rel="icon" href="{% static 'img/favicon.png' %}">
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+        {% block css %}
+        {% endblock css %}
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <img src="{% static 'img/logo.png' %}">
+                </li>
+                <li>
+                    {% if request.path == '/signup/' %}
+                    <h1>SIGN UP</h1>
+                    {% elif request.path == '/login/' %}
+                    <h1>SIGN IN</h1>
+                    {% else %}
+                    {% endif %}
+                </li>
+                <li>
+                    {% if request.path == '/signup/' %}
+                    <button class="btn-sign-in">sign in</button>
+                    {% elif request.path == '/login/' %}
+                    <button class="btn-sign-up">sign up</button>
+                    {% else %}
+                    {% endif %}
+                </li>
+            </ul>
+        </nav>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+
+    <script src="{% static 'js/base.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+</html>
