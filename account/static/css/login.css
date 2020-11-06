@@ -1,0 +1,104 @@
+#container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Icon CSS */
+.icon {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+.icon img {
+    width: 53px;
+    height: 53px;
+    background-size: contain;
+}
+
+.id {
+    content: url('../img/id.png');
+}
+.password {
+    content: url('../img/password1.png');
+}
+
+/* Input CSS */
+.sign-in-input {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sign-in-input input[type='text'],
+input[type='password']{
+    width: 28vw;
+    min-width: 300px;
+    height: 80px;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    border: 0px;
+    padding-left: 34px;
+}
+
+.sign-in-input input[type='text'],
+input[type='password']:focus {
+    outline: 0;
+}
+
+.sign-in-input input[type='text'],
+input[type='password']::placeholder {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.sign-in-input input[type='text'],
+input[type='password']::-moz-placeholder {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.sign-in-input input[type='text'],
+input[type='password']::-ms-input-placeholder {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.sign-in-input input[type='text'],
+input[type='password']::-webkit-input-placeholder {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* Forgot Password */
+.forgot-password {
+    align-self: flex-end;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #999999;
+}
+
+/* Button Sign Up */
+.sign-in {
+    margin-bottom: 60px;
+    margin-top: 6vh;
+}
+.sign-in input[type='submit'] {
+    width: 32vw;
+    min-width: 420px;
+    height: 80px;
+    background-color: #DC8962;
+    border-radius: 20px;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
