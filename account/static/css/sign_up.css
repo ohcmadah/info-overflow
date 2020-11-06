@@ -40,22 +40,22 @@
 }
 
 .id {
-    background: url('../img/id.png') no-repeat;
+    content: url('../img/id.png');
 }
 .name {
-    background: url('../img/name.png') no-repeat;
+    content: url('../img/name.png');
 }
 .email {
-    background: url('../img/email.png') no-repeat;
+    content: url('../img/email.png');
 }
 .department {
-    background: url('../img/department.png') no-repeat;
+    content: url('../img/department.png');
 }
 .password1 {
-    background: url('../img/password1.png') no-repeat;
+    content: url('../img/password1.png');
 }
 .password2 {
-    background: url('../img/password2_checked.png') no-repeat;
+    content: url('../img/password2_checked.png');
 }
 
 /* Input CSS */
