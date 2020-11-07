@@ -22,6 +22,7 @@ nav li {
 .logo {
     display: flex;
     width: 15vw;
+    min-width: 125px;
     cursor: pointer;
 }
 .logo img {
@@ -31,6 +32,8 @@ nav li {
 /* Nav Button */
 nav button {
     width: 10vw;
+    min-width: 90px;
+    margin-left: 5vw;
     height: 50px;
     border-radius: 20px;
     background-color: #F0B791;
