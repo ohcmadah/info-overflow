@@ -11,7 +11,7 @@
         {% csrf_token %}
         <div class="input-box">
             {% for field in form %}
-            <div class="sign-up-input {% if field.errors|length > 0 %}has-error{% endif %}">
+            <div class="sign-up-input">
                 <div class="icon">
                     <img class="{{ field.name }}" />
                 </div>
@@ -22,9 +22,12 @@
                     <option value="Design">DESIGN</option>
                 </select>
                 {% else %}
-                <input name="{{ field.name }}" type="{{ field.field.widget.input_type }}" placeholder="{{ field.label }}">
+                <input id="{{ field.id_for_label }}" name="{{ field.name }}" type="{{ field.field.widget.input_type }}" placeholder="{{ field.label }}">
                 {% endif %}
             </div>
+            {% for error in field.errors %}
+                <label class="text-error" for="{{ field.id_for_label }}">{{ error }}</label>
+            {% endfor %}
             {% endfor %}
         </div>
         <div class="sign-up">

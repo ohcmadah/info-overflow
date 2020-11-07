@@ -1,7 +1,10 @@
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.urls import reverse_lazy
+
 from .forms import UserCreationForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -15,6 +18,8 @@ def sign_up(request):
             user.save()
 
             return redirect('/')
+        else:
+            return render(request, 'sign_up.html', {'form': user_form})
     else:
         form = UserCreationForm()
         return render(request, 'sign_up.html', {'form': form})
@@ -36,11 +41,8 @@ def login(request):
         return render(request, 'login.html')
 
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('/')
-    else:
-        return render(request, 'login.html')
+    auth.logout(request)
+    return render(request, 'login.html')
 
 def home(request):
     return render(request, 'index.html')
@@ -62,3 +64,23 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
         return render(request, 'change_password.html', {'form': form})
+
+
+class MyPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'password_reset_done.html'
+
+class MyPasswordResetView(PasswordResetView):
+    success_url = reverse_lazy('password_reset_done')
+    template_name = 'password_reset_form.html'
+    mail_title = "비밀번호 재설정"
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+class MyPasswordResetConfirmView(PasswordResetConfirmView):
+    success_url = reverse_lazy('login')
+    template_name = 'password_reset_confirm.html'
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
