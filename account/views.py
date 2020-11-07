@@ -1,6 +1,6 @@
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse_lazy
@@ -66,8 +66,11 @@ def change_password(request):
         return render(request, 'change_password.html', {'form': form})
 
 
+class MyPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'password_reset_done.html'
+
 class MyPasswordResetView(PasswordResetView):
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('password_reset_done')
     template_name = 'password_reset_form.html'
     mail_title = "비밀번호 재설정"
 
