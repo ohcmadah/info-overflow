@@ -18,6 +18,8 @@ def sign_up(request):
             user.save()
 
             return redirect('/')
+        else:
+            return render(request, 'sign_up.html', {'form': user_form})
     else:
         form = UserCreationForm()
         return render(request, 'sign_up.html', {'form': form})
