@@ -4,7 +4,6 @@ from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmVie
 from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse_lazy
-from django.core.mail.message import EmailMessage
 
 from .forms import UserCreationForm
 from django.contrib.auth.forms import PasswordChangeForm

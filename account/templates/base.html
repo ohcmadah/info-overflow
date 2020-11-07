@@ -23,6 +23,8 @@
                     <h1>SIGN IN</h1>
                     {% elif request.path == '/change_password/' %}
                     <h1>CHANGE PASSWORD</h1>
+                    {% elif request.path == '/password_reset/' or '/reset/' in request.path %}
+                    <h1>RESET PASSWORD</h1>
                     {% else %}
                     {% endif %}
                 </li>
@@ -31,7 +33,7 @@
                     <button class="btn-sign-in">sign in</button>
                     {% elif request.path == '/login/' or request.path == '/logout/' %}
                     <button class="btn-sign-up">sign up</button>
-                    {% elif request.path == '/change_password/' %}
+                    {% elif request.path == '/change_password/' or request.path == '/password_reset/' or '/reset/' in request.path  %}
                     <div style="width: 15vw;"></div>
                     {% else %}
                     {% endif %}
