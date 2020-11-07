@@ -1,7 +1,11 @@
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView
 from django.shortcuts import render, redirect
 from django.contrib import auth
+from django.urls import reverse_lazy
+from django.core.mail.message import EmailMessage
+
 from .forms import UserCreationForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -36,11 +40,8 @@ def login(request):
         return render(request, 'login.html')
 
 def logout(request):
-    if request.method == 'POST':
-        auth.logout(request)
-        return redirect('/')
-    else:
-        return render(request, 'login.html')
+    auth.logout(request)
+    return render(request, 'login.html')
 
 def home(request):
     return render(request, 'index.html')
@@ -62,3 +63,20 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
         return render(request, 'change_password.html', {'form': form})
+
+
+class MyPasswordResetView(PasswordResetView):
+    success_url = reverse_lazy('login')
+    template_name = 'password_reset_form.html'
+    mail_title = "비밀번호 재설정"
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+class MyPasswordResetConfirmView(PasswordResetConfirmView):
+    success_url = reverse_lazy('login')
+    template_name = 'password_reset_confirm.html'
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+

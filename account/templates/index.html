@@ -1,6 +1,6 @@
-{% if not user.is_authenticated %}
+{% if not request.user.is_authenticated %}
 <script language="JavaScript">
-    location.replace('/login')
+    location.replace('/login');
 </script>
 {% endif %}
 {% block content %}
@@ -14,3 +14,4 @@
     {% endfor %}
 {% endif %}
 {% endblock content %}
+{{ user }}
