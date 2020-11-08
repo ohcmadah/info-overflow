@@ -19,10 +19,10 @@ def sign_up(request):
 
             return redirect('/')
         else:
-            return render(request, 'sign_up.html', {'form': user_form})
+            return render(request, 'account/sign_up.html', {'form': user_form})
     else:
         form = UserCreationForm()
-        return render(request, 'sign_up.html', {'form': form})
+        return render(request, 'account/sign_up.html', {'form': form})
 
 def login(request):
     if request.method == 'POST':
@@ -36,16 +36,16 @@ def login(request):
             return redirect('/')
 
         else:
-            return render(request, 'login.html', {'error': 'id or password is incorrect.'})
+            return render(request, 'account/login.html', {'error': 'id or password is incorrect.'})
     else:
-        return render(request, 'login.html')
+        return render(request, 'account/login.html')
 
 def logout(request):
     auth.logout(request)
-    return render(request, 'login.html')
+    return render(request, 'account/login.html')
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'account/index.html')
 
 
 @login_required
@@ -63,15 +63,15 @@ def change_password(request):
 
     else:
         form = PasswordChangeForm(request.user)
-        return render(request, 'change_password.html', {'form': form})
+        return render(request, 'account/change_password.html', {'form': form})
 
 
 class MyPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'password_reset_done.html'
+    template_name = 'account/password_reset_done.html'
 
 class MyPasswordResetView(PasswordResetView):
     success_url = reverse_lazy('password_reset_done')
-    template_name = 'password_reset_form.html'
+    template_name = 'account/password_reset_form.html'
     mail_title = "비밀번호 재설정"
 
     def form_valid(self, form):
@@ -79,7 +79,7 @@ class MyPasswordResetView(PasswordResetView):
 
 class MyPasswordResetConfirmView(PasswordResetConfirmView):
     success_url = reverse_lazy('login')
-    template_name = 'password_reset_confirm.html'
+    template_name = 'account/password_reset_confirm.html'
 
     def form_valid(self, form):
         return super().form_valid(form)
