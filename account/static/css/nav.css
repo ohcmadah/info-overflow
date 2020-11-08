@@ -4,13 +4,26 @@ html, body {
 }
 
 /* Nav Container */
-nav ul {
+nav .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 20vh;
     margin: 0px 65px;
     padding: 0px;
+    font-size: 1.1rem;
+}
+
+/* Nav Department */
+.nav-department {
+    display: flex;
+    justify-content: space-between;
+    padding: 0px;
+}
+
+.nav-department li {
+    margin-right: 5vw;
+    cursor: pointer;
 }
 
 /* List Style */
@@ -27,6 +40,16 @@ nav li {
 }
 .logo img {
     width: 100%;
+}
+
+/* User Menu */
+.btn_user {
+    cursor: pointer;
+}
+
+.btn_user img {
+    width: 15px;
+    height: auto;
 }
 
 /* Nav Button */
@@ -46,4 +69,11 @@ nav button {
 
 nav button:focus {
     outline: none;
+}
+
+/* Media Query */
+@media (max-width: 900px) {
+    .nav-department {
+        display: none;
+    }
 }

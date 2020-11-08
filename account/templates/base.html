@@ -12,7 +12,7 @@
     </head>
     <body>
         <nav>
-            <ul>
+            <ul class="header">
                 <li class="logo">
                     <img src="{% static 'img/logo.png' %}">
                 </li>
@@ -28,6 +28,12 @@
                     {% elif request.path == '/password_reset_done/' %}
                     <h1>SENT</h1>
                     {% else %}
+                    <ul class="nav-department">
+                        <li>Software</li>
+                        <li>Web Solution</li>
+                        <li>Design</li>
+                        <li>Other</li>
+                    </ul>
                     {% endif %}
                 </li>
                 <li>
@@ -38,6 +44,10 @@
                     {% elif request.path == '/change_password/' or request.path == '/password_reset/' or '/reset/' in request.path or request.path == '/password_reset_done/'  %}
                     <div style="width: 15vw;"></div>
                     {% else %}
+                    <div class="btn_user">
+                        <span>{{ user.get_username }}</span>
+                        <img src="{% static 'img/tri_grey.png' %}" />
+                    </div>
                     {% endif %}
                 </li>
             </ul>
