@@ -44,9 +44,6 @@ def logout(request):
     auth.logout(request)
     return render(request, 'account/login.html')
 
-def home(request):
-    return render(request, 'account/index.html')
-
 
 @login_required
 def change_password(request):
