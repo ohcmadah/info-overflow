@@ -17,7 +17,7 @@ def sign_up(request):
             user = user_form.save()
             user.save()
 
-            return redirect('/')
+            return render(request, 'account/login.html', {'print': user.id})
         else:
             return render(request, 'account/sign_up.html', {'form': user_form})
     else:
