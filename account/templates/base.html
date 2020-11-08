@@ -45,7 +45,7 @@
                     <div style="width: 15vw;"></div>
                     {% else %}
                     <div class="btn_user">
-                        <span>{{ user }}</span>
+                        <span>{{ user.get_username }}</span>
                         <img src="{% static 'img/tri_grey.png' %}" />
                     </div>
                     {% endif %}

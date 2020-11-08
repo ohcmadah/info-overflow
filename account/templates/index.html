@@ -5,13 +5,15 @@
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
 {% endblock css %}
 
-{% if not request.user.is_authenticated %}
+
+
+{% block content %}
+{% if not user.is_authenticated %}
 <script language="JavaScript">
     location.replace('/login');
 </script>
 {% endif %}
 
-{% block content %}
 {% if messages %}
     {% for message in messages %}
         {% if message.tags %}
@@ -22,4 +24,3 @@
     {% endfor %}
 {% endif %}
 {% endblock content %}
-{{ user }}
