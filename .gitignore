@@ -3,6 +3,5 @@
 __pycache__
 infovenv
 db.sqlite3
-/blog/static
 .DS_Store
 secrets.json
