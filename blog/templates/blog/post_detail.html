@@ -19,8 +19,12 @@
             </div>
             {% if post.user.get_name == user.get_name %}
             <div class="buttons">
-                <button class="btn-edit" href="{% url 'blog:post_edit' pk=post.pk %}">edit</button>
-                <button class="btn-remove" href="{% url 'blog:post_remove' pk=post.pk %}">remove</button>
+                <div class="btn-edit">
+                    <a href="{% url 'blog:post_edit' pk=post.pk %}">edit</a>
+                </div>
+                <div class="btn-remove">
+                    <a href="{% url 'blog:post_remove' pk=post.pk %}">remove</a>
+                </div>
             </div>
             {% endif %}
         </div>

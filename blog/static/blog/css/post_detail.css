@@ -29,22 +29,31 @@
     margin-right: 10px;
 }
 
+.buttons {
+    display: flex;
+}
+
 .btn-edit, .btn-remove {
     padding: 0;
-    width: 9vw;
-    min-width: 60px;
+    width: 10vw;
+    min-width: 75px;
     height: 25px;
     background-color: #F0B791;
     border-width: 0;
     border-radius: 20px;
     cursor: pointer;
-    color: white;
-    font-weight: bold;
     margin-left: 5px;
+    text-align: center;
 }
 
 .btn-edit, .btn-remove:focus {
     outline: none;
+}
+
+.btn-edit a, .btn-remove a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 /* Content */
