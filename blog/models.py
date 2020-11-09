@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
+from datetime import datetime
 
 class Post(models.Model):
     user = models.ForeignKey(

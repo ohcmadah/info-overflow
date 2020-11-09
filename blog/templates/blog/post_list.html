@@ -37,7 +37,7 @@
         </div>
         <div class="right-box">
             <div class="date">
-                <span>{{ post.published_date }}</span>
+                <span>{{ post.published_date|date:"Y. m. d" }}</span>
             </div>
             <div class="user-name">
                 <span>{{ post.user.get_name }}</span>
