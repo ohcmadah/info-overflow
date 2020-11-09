@@ -1,0 +1,161 @@
+/* Container */
+#container {
+    margin: 0px 65px;
+}
+
+/* Text Title */
+.title {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+/* Date, Category, User, Edit, Remove */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 1px;
+    height: 15px;
+    background-color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-edit, .btn-remove {
+    padding: 0;
+    width: 9vw;
+    min-width: 60px;
+    height: 25px;
+    background-color: #F0B791;
+    border-width: 0;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.btn-edit, .btn-remove:focus {
+    outline: none;
+}
+
+/* Content */
+.post-content {
+    margin-bottom: 0;
+    margin-top: 40px;
+    color: #666666;
+    font-size: 1.2rem;
+}
+
+/* Comment */
+.comment-container {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    margin-bottom: 55px;
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-info span:nth-child(1) {
+    margin-right: 25px;
+    font-size: 0.95rem;
+}
+
+.comment-info span:nth-child(2) {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+.comment-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.comment-buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.comment-buttons button:focus {
+    outline: none;
+}
+
+.comment-content {
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+
+.input-comment {
+    margin-top: 35px;
+    display: inline-block;
+}
+
+.input-comment-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-comment-info img {
+    width: 40px;
+    height: auto;
+}
+
+.input-comment-info span {
+    font-size: 0.95rem;
+    margin-left: 15px;
+}
+
+.input-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.input-box textarea {
+    padding: 35px;
+    width: 85vw;
+    height: 8vh;
+    margin-right: 2vw;
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    border-width: 0;
+    resize: none;
+}
+
+.input-box textarea:focus {
+    outline: none;
+}
+
+.input-box textarea::placeholder {
+    color: #666666;
+    font-size: 1.1rem;
+}
+
+.input-box input[type='submit'] {
+    width: 15vw;
+    background-color: #DC8962;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    border-width: 0;
+}
