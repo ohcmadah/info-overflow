@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <title>Info Overflow</title>
 
-        <link rel="icon" href="{% static 'img/favicon.png' %}">
-        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+        <link rel="icon" href="{% static 'account/img/favicon.png' %}">
+        <link rel="stylesheet" href="{% static 'account/css/nav.css' %}">
         {% block css %}
         {% endblock css %}
     </head>
@@ -14,7 +14,7 @@
         <nav>
             <ul class="header">
                 <li class="logo">
-                    <img src="{% static 'img/logo.png' %}">
+                    <img src="{% static 'account/img/logo.png' %}">
                 </li>
                 <li>
                     {% if request.path == '/signup/' %}
@@ -46,7 +46,7 @@
                     {% else %}
                     <div class="btn_user">
                         <span>{{ user.get_name }}</span>
-                        <img src="{% static 'img/tri_grey.png' %}" />
+                        <img src="{% static 'account/img/tri_grey.png' %}" />
                     </div>
                     {% endif %}
                 </li>
@@ -57,7 +57,7 @@
         {% endblock %}
     </body>
 
-    <script src="{% static 'js/base.js' %}"></script>
+    <script src="{% static 'account/js/base.js' %}"></script>
     {% block scripts %}
     {% endblock scripts %}
 </html>
