@@ -42,23 +42,23 @@
                     </div>
                     {% if comment.user.get_name == user.get_name %}
                     <div class="comment-buttons">
-                        <a class="btn-comment-edit">edit</a>
-                        <div class="line" style="height: 10px"></div>
-                        <a href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn-comment-remove">remove</a>
-                        <input type="submit" class="btn-comment-save" value="save">
+                        <a id="edit-btn-{{ comment.pk }}" class="btn-comment-edit">edit</a>
+                        <div id="line-{{ comment.pk }}" class="line" style="height: 10px"></div>
+                        <a id="remove-btn-{{ comment.pk }}" href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn-comment-remove">remove</a>
+                        <input id="save-btn-{{ comment.pk }}" type="submit" class="btn-comment-save invisible" value="save">
                     </div>
                     {% endif %}
                 </div>
-                <div class="comment-content">
+                <div id="comment-content-{{ comment.pk }}" class="comment-content">
                     <p>{{ comment.content|linebreaks }}</p>
                 </div>
-                <div class="edit-textarea">
+                <div id="edit-textarea-{{ comment.pk }}" class="edit-textarea invisible">
                     <textarea name="content" >{{ comment.content }}</textarea>
                 </div>
             </form>
-
         </div>
         {% endfor %}
+
         <div class="input-comment">
             <div class="input-comment-info">
                 <img src="{% static 'account/img/id.png' %}" />

@@ -1,23 +1,19 @@
-const btnCommentEdit = document.querySelector(".btn-comment-edit");
-const btnCommentSave = document.querySelector(".btn-comment-save");
-const btnCommentRemove = document.querySelector(".btn-comment-remove");
-
-const line = document.querySelector(".comment-buttons .line");
-const commentEditForm = document.querySelector("#comment-edit-form");
-
-const editTextArea = document.querySelector(".edit-textarea");
-const commentContent = document.querySelector(".comment-content");
+const btnCommentEditAll = document.querySelectorAll(".btn-comment-edit");
+let btnCommentSave;
 
 function setEvent() {
-    if (btnCommentSave) {
-        btnCommentSave.classList.add("invisible");
-        editTextArea.classList.add("invisible");
-    }
-    if (btnCommentEdit) {
-        btnCommentEdit.addEventListener('click', event => {
-            event.preventDefault();
-            myToggle();
-        });
+    if (btnCommentEditAll) {
+        btnCommentEditAll.forEach(btnCommentEdit => {
+                btnCommentEdit.addEventListener('click', event => {
+                event.preventDefault();
+
+                btnCommentEdit.classList.toggle("invisible");
+
+                const pk = btnCommentEdit.id.split('-')[2];
+
+                myToggle(pk);
+            });
+        })
     }
     if (btnCommentSave) {
         btnCommentSave.addEventListener('click', event => {
@@ -28,13 +24,20 @@ function setEvent() {
     }
 }
 
-function myToggle() {
-    btnCommentSave.classList.toggle("invisible");
-    btnCommentRemove.classList.toggle("invisible");
-    btnCommentEdit.classList.toggle("invisible");
-    line.classList.toggle("invisible");
-    editTextArea.classList.toggle("invisible");
-    commentContent.classList.toggle("invisible");
+function myToggle(pk) {
+    const editTextArea = document.querySelector(`#edit-textarea-${pk}`);
+    const commentContent = document.querySelector(`#comment-content-${pk}`);
+    btnCommentSave = document.querySelector(`#save-btn-${pk}`);
+    const btnCommentRemove = document.querySelector(`#remove-btn-${pk}`);
+    const line = document.querySelector(`#line-${pk}`);
+
+    if (editTextArea && commentContent && btnCommentSave && btnCommentRemove && line) {
+        editTextArea.classList.toggle("invisible");
+        commentContent.classList.toggle("invisible");
+        btnCommentSave.classList.toggle("invisible");
+        btnCommentRemove.classList.toggle("invisible");
+        line.classList.toggle("invisible");
+    }
 }
 
 function init() {
