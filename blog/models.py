@@ -1,7 +1,6 @@
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
-from datetime import datetime
 
 class Post(models.Model):
     user = models.ForeignKey(
@@ -30,3 +29,17 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
+    user = models.CharField(max_length=200)
+    content = models.TextField()
+    published_date = models.DateTimeField()
+
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()
+
+    def __str__(self):
+        return self.content
