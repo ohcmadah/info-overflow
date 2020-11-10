@@ -37,7 +37,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(
         verbose_name=_('name'),
         max_length=50,
-        unique=True
     )
     email = models.EmailField(
         verbose_name=_("email"),
@@ -68,6 +67,9 @@ class User(AbstractBaseUser, PermissionsMixin):
         return True
 
     def get_username(self):
+        return self.id
+
+    def get_name(self):
         return self.name
 
     def get_user_department(self):

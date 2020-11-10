@@ -1,0 +1,62 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div id="container">
+    <div class="post-box">
+        <h1 class="title">{{ post.title }}</h1>
+        <div class="post-header">
+            <div class="post-info">
+                <span>{{ post.published_date|date:"Y. m. d" }}</span>
+                <div class="line"></div>
+                <span>{{ post.category }}</span>
+                <div class="line"></div>
+                <span>{{ post.user.get_name }}</span>
+            </div>
+            {% if post.user.get_name == user.get_name %}
+            <div class="buttons">
+                <div class="btn-edit">
+                    <a href="{% url 'blog:post_edit' pk=post.pk %}">edit</a>
+                </div>
+                <div class="btn-remove">
+                    <a href="{% url 'blog:post_remove' pk=post.pk %}">remove</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <p class="post-content">{{ post.content|linebreaksbr }}</p>
+    </div>
+    <div class="comment-container">
+        <div class="comment">
+            <div class="comment-info">
+                <div>
+                    <span>jimin</span>
+                    <span>20. 10. 29 20:53</span>
+                </div>
+                {% if post.user.get_name == user.get_name %}
+                <div class="comment-buttons">
+                    <button class="btn-comment-edit">edit</button>
+                    <div class="line" style="height: 10px"></div>
+                    <button class="btn-comment-remove">remove</button>
+                </div>
+                {% endif %}
+            </div>
+            <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor diam in quam</p>
+        </div>
+        <div class="input-comment">
+            <div class="input-comment-info">
+                <img src="{% static 'account/img/id.png' %}" />
+                <span>{{ user.get_name }}</span>
+            </div>
+            <form action="." method="post" class="input-box">
+                <textarea name="content" placeholder="comment..."></textarea>
+                <input type="submit" value="submit" />
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

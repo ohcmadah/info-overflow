@@ -1,0 +1,28 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/post_edit.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div id="container">
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        <div class="title-category-box">
+            <input type="text" name="title" value="{{ form.title.value|default_if_none:'' }}" placeholder="Title" maxlength="200" required />
+            <select name="category" required>
+                <option value="Software">Software</option>
+                <option value="Web Solution">Web Solution</option>
+                <option value="Design">Design</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <textarea class="textarea-content" name="content" required>{{ form.content.value|default_if_none:'' }}</textarea>
+        <div class="submit-container">
+            <input type="submit" class="btn-publish" value="publish" />
+        </div>
+    </form>
+</div>
+{% endblock %}
+<input type="{{ field.field.widget.input_type }}" placeholder="{{ field.label }}" id="{{ field.id_for_label }}" name="{{ field.name }}" value="{{ field.value|default_if_none:'' }}">

@@ -1,0 +1,136 @@
+#container {
+    margin: 20px 65px;
+}
+
+/* Post Container */
+.post-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Write Button */
+.write-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-write {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 10vw;
+    min-width: 80px;
+    height: 35px;
+    margin-bottom: 30px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #DC8962;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+/* Left Box */
+.left-box {
+    width: 40vw;
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Right Box */
+.right-box {
+    display: flex;
+    width: 15vw;
+    min-width: 160px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Text Title */
+.title {
+    margin: 0;
+    display: flex;
+}
+
+.title a {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+/* Comment Img */
+.comment-box {
+    display: flex;
+    align-items: center;
+}
+
+.comment-box img {
+    width: 20px;
+    height: auto;
+}
+
+.comment-box span {
+    margin-left: 10px;
+}
+
+/* Text Category */
+.category-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0B791;
+    border-radius: 20px;
+    width: 12vw;
+    min-width: 180px;
+    height: 40px;
+}
+
+.category-box span {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Text Published Date, User Name */
+.date, .user-name {
+    display: flex;
+    align-items: center;
+}
+.date span {
+    color: #666666;
+}
+.user-name span {
+    color: #666666;
+    font-weight: bold;
+}
+
+/* Media Query */
+@media (max-width: 800px) {
+    .post-box {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+        align-items: center;
+    }
+
+    .left-box {
+        width: 60vw;
+        min-width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .right-box {
+        align-self: flex-end;
+        margin-top: 10px;
+    }
+}
