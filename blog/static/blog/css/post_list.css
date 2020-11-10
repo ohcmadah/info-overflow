@@ -6,6 +6,7 @@
 .post-box {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
 /* Write Button */
@@ -22,7 +23,7 @@
     width: 10vw;
     min-width: 80px;
     height: 35px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 
     border: none;
     border-radius: 10px;
@@ -37,8 +38,8 @@
 
 /* Left Box */
 .left-box {
-    width: 40vw;
-    min-width: 400px;
+    width: 45vw;
+    min-width: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
