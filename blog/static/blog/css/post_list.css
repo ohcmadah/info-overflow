@@ -38,8 +38,8 @@
 
 /* Left Box */
 .left-box {
-    width: 40vw;
-    min-width: 400px;
+    width: 45vw;
+    min-width: 450px;
     display: flex;
     align-items: center;
     justify-content: space-between;
