@@ -21,6 +21,10 @@
         {% endif %}
     {% endfor %}
 {% endif %}
+<div id="container">
+    <div class="write-container">
+    <a class="btn-write" href="{% url 'blog:post_new' %}">Write</a>
+</div>
 {% for post in posts %}
     <div class="post-box">
         <div class="left-box">
@@ -45,4 +49,5 @@
         </div>
     </div>
 {% endfor %}
+</div>
 {% endblock %}
