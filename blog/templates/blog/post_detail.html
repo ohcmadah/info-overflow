@@ -40,9 +40,10 @@
                 </div>
                 {% if comment.user.get_name == user.get_name %}
                 <div class="comment-buttons">
-                    <button class="btn-comment-edit">edit</button>
+                    <a class="btn-comment-edit">edit</a>
                     <div class="line" style="height: 10px"></div>
-                    <button class="btn-comment-remove">remove</button>
+                    <a href="{% url 'blog:comment_remove' pk=post.pk %}" class="btn-comment-remove">remove</a>
+                    <a href="{% url 'blog:comment_edit' pk=post.pk %}" class="btn-comment-save">save</a>
                 </div>
                 {% endif %}
             </div>
@@ -65,3 +66,7 @@
     </div>
 </div>
 {% endblock %}
+
+{% block scripts %}
+<script src="{% static 'blog/js/post_detail.js' %}"></script>
+{% endblock scripts %}

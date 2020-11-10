@@ -96,14 +96,14 @@
     align-items: center;
 }
 
-.comment-buttons button {
-    background: none;
-    border: none;
+.comment-buttons a {
+    text-decoration: none;
+    color: black;
     cursor: pointer;
 }
 
-.comment-buttons button:focus {
-    outline: none;
+.invisible {
+    display: none;
 }
 
 .comment-content {
