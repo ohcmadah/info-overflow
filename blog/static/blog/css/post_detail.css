@@ -146,10 +146,15 @@
     width: 85vw;
     height: 8vh;
     margin-right: 2vw;
+
     background-color: #F9F9F9;
     border-radius: 20px;
     border-width: 0;
+
     resize: none;
+    font-family: inherit;
+    font-size: 1.1rem;
+    color: #666666;
 }
 
 .input-box textarea:focus {
