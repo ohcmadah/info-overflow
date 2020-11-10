@@ -1,0 +1,62 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'account/css/my_page.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div id="container">
+    <h1>My Page</h1>
+    <div id="profile">
+        <div class="profile-card-view">
+            <h2>profile</h2>
+            <form method="post" class="profile-form">
+                {% csrf_token %}
+                <div class="profile-name">
+                    <label for="id_name">name</label>
+                    <input type="text" id="id_name" name="name" value="{{ field.value|default_if_none:user.get_name }}" placeholder="user.get_name">
+                    <button class="btn-name-edit">
+                        <img src="{% static 'account/img/pencil.png' %}" />
+                    </button>
+                </div>
+                <div class="profile-department">
+                    <label>department</label>
+                    <select name="department">
+                        <option value="Software">Software</option>
+                        <option value="Web Solution">Web Solution</option>
+                        <option value="Design">Design</option>
+                    </select>
+                    <button class="btn-department-apply">apply</button>
+                </div>
+            </form>
+            <div class="profile-email">
+                <label>e-mail</label>
+                <span>{{ user.get_user_email }}</span>
+            </div>
+        </div>
+        <div class="bottom-menu">
+            <div class="change-password-menu">
+                <img src="{% static 'account/img/password1.png' %}" />
+                <a href="">Change your password</a>
+            </div>
+            <div class="deactivate-account-menu">
+                <img src="{% static 'account/img/broken-heart.png' %}" />
+                <a href="">Deactivate your account</a>
+            </div>
+        </div>
+    </div>
+    <div id="post">
+        <h2>post</h2>
+        <ul class="my-post-container">
+            <li>
+                <span class="post-date">20. 01</span>
+                <div class="post-title-list">
+                    <span class="post-title">영어 2과 문법</span>
+                    <span class="post-title">수학 수열의 합 알려주세요</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}
