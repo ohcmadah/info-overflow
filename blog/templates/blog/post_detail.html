@@ -31,13 +31,14 @@
         <p class="post-content">{{ post.content|linebreaksbr }}</p>
     </div>
     <div class="comment-container">
+        {% for comment in post.comments.all %}
         <div class="comment">
             <div class="comment-info">
                 <div>
-                    <span>jimin</span>
-                    <span>20. 10. 29 20:53</span>
+                    <span>{{ comment.user.get_name }}</span>
+                    <span>{{ comment.published_date|date:"Y. m. d" }}</span>
                 </div>
-                {% if post.user.get_name == user.get_name %}
+                {% if comment.user.get_name == user.get_name %}
                 <div class="comment-buttons">
                     <button class="btn-comment-edit">edit</button>
                     <div class="line" style="height: 10px"></div>
@@ -45,8 +46,11 @@
                 </div>
                 {% endif %}
             </div>
-            <p class="comment-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin porttitor diam in quam</p>
+            <div class="comment-content">
+                <p>{{ comment.content|linebreaks }}</p>
+            </div>
         </div>
+        {% endfor %}
         <div class="input-comment">
             <div class="input-comment-info">
                 <img src="{% static 'account/img/id.png' %}" />

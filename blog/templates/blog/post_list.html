@@ -36,7 +36,7 @@
             </h1>
             <div class="comment-box">
                 <img src="{% static 'account/img/comment.png' %}" />
-                <span>2</span>
+                <span>{{ post.comments.count }}</span>
             </div>
         </div>
         <div class="right-box">
