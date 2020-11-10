@@ -113,7 +113,40 @@
     color: #666666;
 }
 
+/* Edit Comment */
+.btn-comment-save {
+    background: none;
+    border: none;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 16px;
+}
 
+.btn-comment-save:focus {
+    outline: none;
+}
+
+.edit-textarea textarea {
+    padding: 35px;
+    width: 100%;
+    height: 120px;
+    margin-top: 15px;
+
+    background-color: #F9F9F9;
+    border-radius: 20px;
+    border-width: 0;
+    box-sizing: border-box;
+
+    resize: none;
+    font-family: inherit;
+    color: #666666;
+}
+
+.edit-textarea textarea:focus {
+    outline: none;
+}
+
+/* Input Comment */
 .input-comment {
     margin-top: 35px;
     display: inline-block;
