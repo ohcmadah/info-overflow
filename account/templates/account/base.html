@@ -44,9 +44,16 @@
                     {% elif request.path == '/change_password/' or request.path == '/password_reset/' or '/reset/' in request.path or request.path == '/password_reset_done/'  %}
                     <div style="width: 15vw;"></div>
                     {% else %}
-                    <div class="btn_user">
-                        <span>{{ user.get_name }}</span>
-                        <img src="{% static 'account/img/tri_grey.png' %}" />
+                    <div class="nav-user">
+                        <div class="btn_user">
+                            <span>{{ user.get_name }}</span>
+                            <img src="{% static 'account/img/tri_grey.png' %}" />
+                        </div>
+                        <ul class="dropdown">
+                            <li><a>My page</a></li>
+                            <div class="line"></div>
+                            <li><a>Logout</a></li>
+                        </ul>
                     </div>
                     {% endif %}
                 </li>
