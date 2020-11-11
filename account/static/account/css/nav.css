@@ -119,7 +119,7 @@ nav li {
     transform: translateY(0px);
 }
 
-.line {
+.menu-line {
     position: absolute;
     height: 1px;
     width: 100%;
