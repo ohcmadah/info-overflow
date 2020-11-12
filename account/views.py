@@ -91,7 +91,7 @@ def my_page(request):
             user = form.save()
             user.save()
             messages.info(request, 'Your profile was successfully updated!')
-            return redirect('/')
+            return redirect('/my_page')
         else:
             messages.info(request, 'Please correct the error below')
             return redirect('/my_page')

@@ -1,0 +1,97 @@
+/* Container */
+#container {
+    display: flex;
+}
+
+#profile {
+    flex: 1;
+}
+
+#post {
+    flex: 1;
+}
+
+/* Text My Page */
+h1 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* Text Second Title */
+h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+/* Card View */
+.profile-card-view {
+    width: 37vw;
+    min-width: 300px;
+    padding: 40px;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.15);
+       -moz-box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.15);
+            box-shadow: 2px 3px 10px 0px rgba(0,0,0,0.15);
+}
+
+.profile-card-view span {
+    color: #DC8962;
+    font-weight: bold;
+    margin-left: 35px;
+
+    display: inline-block;
+
+    border-color: #DC8962;
+    border-width: 2px;
+
+    /*border-bottom-width: 2px;*/
+    /*border-bottom-color: #DC8962;*/
+}
+
+/* Button */
+.btn-name-edit,
+.btn-department-edit {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.btn-name-edit img,
+.btn-department-edit img {
+    width: 20px;
+    height: auto;
+}
+
+/* Bottom Menu */
+.bottom-menu {
+    margin-top: 40px;
+}
+
+.change-password-menu {
+    margin-bottom: 15px;
+}
+
+.change-password-menu,
+.deactivate-account-menu {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.change-password-menu img,
+.deactivate-account-menu img {
+    width: 30px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.change-password-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.deactivate-account-menu a {
+    text-decoration: none;
+    color: #999999;
+}

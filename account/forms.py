@@ -1,5 +1,4 @@
 from django import forms
-from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import ugettext_lazy as _
 
 from .models import User
@@ -40,7 +39,4 @@ class UserCreationForm(forms.ModelForm):
 class UserChangeForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('name', 'department', 'password')
-
-    def clean_password(self):
-        return self.initial["password"]
+        fields = ('name', 'department')

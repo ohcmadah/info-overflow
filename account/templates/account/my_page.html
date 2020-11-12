@@ -6,8 +6,17 @@
 {% endblock css %}
 
 {% block content %}
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}
+            <script>
+                alert('{{ message }}')
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+<h1>My Page</h1>
 <div id="container">
-    <h1>My Page</h1>
     <div id="profile">
         <div class="profile-card-view">
             <h2>profile</h2>
