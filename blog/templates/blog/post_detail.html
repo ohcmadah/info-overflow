@@ -37,7 +37,7 @@
                 {% csrf_token %}
                 <div class="comment-info">
                     <div>
-                        <span>{{ comment.user.get_name }}</span>
+                        <span>{{ comment.user.get_name }} ({{ comment.user.get_user_department }})</span>
                         <span>{{ comment.published_date|date:"Y. m. d H:i" }}</span>
                     </div>
                     {% if comment.user.get_name == user.get_name %}

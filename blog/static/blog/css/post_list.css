@@ -48,8 +48,8 @@
 /* Right Box */
 .right-box {
     display: flex;
-    width: 15vw;
-    min-width: 160px;
+    width: 18vw;
+    min-width: 280px;
     align-items: center;
     justify-content: space-between;
 }
@@ -102,20 +102,22 @@
 }
 
 /* Text Published Date, User Name */
-.date, .user-name {
+.date, .user-name-container {
     display: flex;
     align-items: center;
 }
 .date span {
     color: #666666;
 }
-.user-name span {
+.user-name-container span {
     color: #666666;
+}
+.user-name {
     font-weight: bold;
 }
 
 /* Media Query */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .post-box {
         display: flex;
         flex-direction: column;

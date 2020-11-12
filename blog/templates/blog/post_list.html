@@ -43,8 +43,9 @@
             <div class="date">
                 <span>{{ post.published_date|date:"Y. m. d" }}</span>
             </div>
-            <div class="user-name">
-                <span>{{ post.user.get_name }}</span>
+            <div class="user-name-container">
+                <span class="user-name">{{ post.user.get_name }}</span>
+                <span>({{ post.user.get_user_department }})</span>
             </div>
         </div>
     </div>
