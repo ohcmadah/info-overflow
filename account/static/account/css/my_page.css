@@ -1,6 +1,18 @@
 /* Container */
 #container {
+    height: 80vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-container {
+    margin-left: 65px;
+    margin-right: 65px;
+    padding-bottom: 40px;
+    max-height: 80%;
+    display: flex;
+    justify-content: space-between;
 }
 
 #profile {
@@ -9,13 +21,31 @@
 
 #post {
     flex: 1;
+    padding-right: 30px;
+    overflow-y: scroll;
+    height: 70%;
+}
+
+/* Scrollbar */
+#post::-webkit-scrollbar {
+    width: 6px;
+}
+#post::-webkit-scrollbar-thumb {
+    background-color: #999999;
+    border-radius: 10px;
+    background-clip: padding-box;
+}
+#post::-webkit-scrollbar-track {
+    background-color: #F3F3F3;
+    border-radius: 10px;
 }
 
 /* Text My Page */
 h1 {
     font-size: 1.4rem;
-    margin-top: 0;
+    margin-top: 40px;
     margin-bottom: 40px;
+    margin-left: 65px;
 }
 
 /* Text Second Title */
@@ -168,4 +198,48 @@ h2 {
 .deactivate-account-menu a {
     text-decoration: none;
     color: #999999;
+}
+
+/* Post */
+.my-post-container li::marker {
+    color: #DC8962;
+}
+
+.month-post {
+    margin-bottom: 30px;
+    display: flex;
+}
+
+.post-date {
+    margin-right: 40px;
+    color: #DC8962;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.post-title-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-title-list a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 15px;
+}
+
+/* Media Query */
+@media (max-width: 1200px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    #post {
+        margin-top: 60px;
+        overflow-y: inherit;
+    }
+
+    .content-container {
+        max-height: none;
+    }
 }

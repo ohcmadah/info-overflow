@@ -15,75 +15,79 @@
         {% endif %}
     {% endfor %}
 {% endif %}
-<h1>My Page</h1>
 <div id="container">
-    <div id="profile">
-        <div class="profile-card-view">
-            <h2>profile</h2>
-            <form method="post">
-                {% csrf_token %}
-                <div class="profile-name">
-                    <label for="id_name">name</label>
-                    <span>{{ user.get_name }}</span>
-                    <input type="text" id="id_name" name="name" value="{{ field.value|default_if_none:user.get_name }}" placeholder="{{ user.get_name }}" class="invisible">
-                    <input type="hidden" name="department" value="{{ user.get_user_department }}">
-                    <button class="btn-name-edit">
-                        <img src="{% static 'account/img/pencil.png' %}" />
-                    </button>
-                    <button type="submit" class="btn-apply invisible">apply</button>
-                    <button class="btn-cancel invisible">cancel</button>
-                </div>
-            </form>
-            <form method="post">
-                {% csrf_token %}
-                <div class="profile-department">
-                    <label>department</label>
-                    <span>{{ user.get_user_department }}</span>
-                    <select name="department" id="id_department" class="invisible">
-                        <option value="Software">Software</option>
-                        <option value="Web Solution">Web Solution</option>
-                        <option value="Design">Design</option>
-                    </select>
-                    <input type="hidden" name="name" value="{{ user.get_name }}">
-                    <button class="btn-department-edit">
-                        <img src="{% static 'account/img/pencil.png' %}" />
-                    </button>
-                    <button type="submit" class="btn-apply invisible">apply</button>
-                    <button class="btn-cancel invisible">cancel</button>
-                </div>
-            </form>
-            <div class="profile-email">
-                <label>e-mail</label>
-                <span>{{ user.get_user_email }}</span>
-            </div>
-        </div>
-        <div class="bottom-menu">
-            <div class="change-password-menu">
-                <img src="{% static 'account/img/password1.png' %}" />
-                <a href="{% url 'change_password' %}">Change your password</a>
-            </div>
-            <div class="deactivate-account-menu">
-                <img src="{% static 'account/img/broken-heart.png' %}" />
-                <a href="">Deactivate your account</a>
-            </div>
-        </div>
-    </div>
-    <div id="post">
-        <h2>post</h2>
-        <ul class="my-post-container">
-            {% for post_list in posts.values %}
-                {% if post_list %}
-                <li>
-                    <span class="post-date">{{ post_list.0.published_date|date:"y. m" }}</span>
-                    <div class="post-title-list">
-                        {% for post in post_list %}
-                            <span class="post-title">{{ post.title }}</span>
-                        {% endfor %}
+    <h1>My Page</h1>
+    <div class="content-container">
+        <div id="profile">
+            <div class="profile-card-view">
+                <h2>profile</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="profile-name">
+                        <label for="id_name">name</label>
+                        <span>{{ user.get_name }}</span>
+                        <input type="text" id="id_name" name="name" value="{{ field.value|default_if_none:user.get_name }}" placeholder="{{ user.get_name }}" class="invisible">
+                        <input type="hidden" name="department" value="{{ user.get_user_department }}">
+                        <button class="btn-name-edit">
+                            <img src="{% static 'account/img/pencil.png' %}" />
+                        </button>
+                        <button type="submit" class="btn-apply invisible">apply</button>
+                        <button class="btn-cancel invisible">cancel</button>
                     </div>
-                </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
+                </form>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="profile-department">
+                        <label>department</label>
+                        <span>{{ user.get_user_department }}</span>
+                        <select name="department" id="id_department" class="invisible">
+                            <option value="Software">Software</option>
+                            <option value="Web Solution">Web Solution</option>
+                            <option value="Design">Design</option>
+                        </select>
+                        <input type="hidden" name="name" value="{{ user.get_name }}">
+                        <button class="btn-department-edit">
+                            <img src="{% static 'account/img/pencil.png' %}" />
+                        </button>
+                        <button type="submit" class="btn-apply invisible">apply</button>
+                        <button class="btn-cancel invisible">cancel</button>
+                    </div>
+                </form>
+                <div class="profile-email">
+                    <label>e-mail</label>
+                    <span>{{ user.get_user_email }}</span>
+                </div>
+            </div>
+            <div class="bottom-menu">
+                <div class="change-password-menu">
+                    <img src="{% static 'account/img/password1.png' %}" />
+                    <a href="{% url 'change_password' %}">Change your password</a>
+                </div>
+                <div class="deactivate-account-menu">
+                    <img src="{% static 'account/img/broken-heart.png' %}" />
+                    <a href="{% url 'deactivate' %}">Deactivate your account</a>
+                </div>
+            </div>
+        </div>
+        <div id="post">
+            <h2>post</h2>
+            <ul class="my-post-container">
+                {% for post_list in posts.values %}
+                    {% if post_list %}
+                    <li>
+                        <div class="month-post">
+                            <span class="post-date">{{ post_list.0.published_date|date:"y. m" }}</span>
+                            <div class="post-title-list">
+                                {% for post in post_list %}
+                                    <a href="{% url 'blog:post_detail' pk=post.pk %}" class="post-title">{{ post.title }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 {% endblock content %}

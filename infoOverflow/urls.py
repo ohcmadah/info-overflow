@@ -12,6 +12,7 @@ urlpatterns = [
 
     path('my_page/', views.my_page, name='my_page'),
     path('change_password/', views.change_password, name='change_password'),
+    path('deactivate/', views.delete_user, name='deactivate'),
 
     path('password_reset_done/', views.MyPasswordResetDoneView.as_view(), name='password_reset_done'),
     path('password_reset/', views.MyPasswordResetView.as_view(), name='password_reset'),
