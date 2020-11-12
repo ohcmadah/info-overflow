@@ -102,8 +102,9 @@ def my_page(request):
     for post in filter_posts:
         date = str(post.published_date)[:7]
         if date in posts:
-            posts[date] += [post]
-        posts[date] = [post]
+            posts[date].append(post)
+        else:
+            posts[date] = [post]
     return render(request, 'account/my_page.html', {'posts': posts})
 
 @login_required

@@ -75,11 +75,13 @@
                 {% for post_list in posts.values %}
                     {% if post_list %}
                     <li>
-                        <span class="post-date">{{ post_list.0.published_date|date:"y. m" }}</span>
-                        <div class="post-title-list">
-                            {% for post in post_list %}
-                                <span class="post-title">{{ post.title }}</span>
-                            {% endfor %}
+                        <div class="month-post">
+                            <span class="post-date">{{ post_list.0.published_date|date:"y. m" }}</span>
+                            <div class="post-title-list">
+                                {% for post in post_list %}
+                                    <a href="{% url 'blog:post_detail' pk=post.pk %}" class="post-title">{{ post.title }}</a>
+                                {% endfor %}
+                            </div>
                         </div>
                     </li>
                     {% endif %}
