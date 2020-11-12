@@ -181,3 +181,14 @@ h2 {
     text-decoration: none;
     color: #999999;
 }
+
+/* Media Query */
+@media (max-width: 1200px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    #post {
+        margin-top: 60px;
+    }
+}
