@@ -20,29 +20,36 @@
     <div id="profile">
         <div class="profile-card-view">
             <h2>profile</h2>
-            <form method="post" class="profile-form">
+            <form method="post">
                 {% csrf_token %}
                 <div class="profile-name">
                     <label for="id_name">name</label>
                     <span>{{ user.get_name }}</span>
-                    <input type="text" id="id_name" name="name" value="{{ field.value|default_if_none:user.get_name }}" placeholder="{{ user.get_name }}">
+                    <input type="text" id="id_name" name="name" value="{{ field.value|default_if_none:user.get_name }}" placeholder="{{ user.get_name }}" class="invisible">
+                    <input type="hidden" name="department" value="{{ user.get_user_department }}">
                     <button class="btn-name-edit">
                         <img src="{% static 'account/img/pencil.png' %}" />
                     </button>
-                    <button type="submit" class="btn-apply">apply</button>
+                    <button type="submit" class="btn-apply invisible">apply</button>
+                    <button class="btn-cancel invisible">cancel</button>
                 </div>
+            </form>
+            <form method="post">
+                {% csrf_token %}
                 <div class="profile-department">
                     <label>department</label>
                     <span>{{ user.get_user_department }}</span>
-                    <select name="department">
+                    <select name="department" id="id_department" class="invisible">
                         <option value="Software">Software</option>
                         <option value="Web Solution">Web Solution</option>
                         <option value="Design">Design</option>
                     </select>
+                    <input type="hidden" name="name" value="{{ user.get_name }}">
                     <button class="btn-department-edit">
                         <img src="{% static 'account/img/pencil.png' %}" />
                     </button>
-                    <button type="submit" class="btn-apply">apply</button>
+                    <button type="submit" class="btn-apply invisible">apply</button>
+                    <button class="btn-cancel invisible">cancel</button>
                 </div>
             </form>
             <div class="profile-email">
@@ -80,3 +87,7 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'account/js/my_page.js' %}"></script>
+{% endblock scripts %}

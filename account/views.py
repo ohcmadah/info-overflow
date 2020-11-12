@@ -87,6 +87,7 @@ class MyPasswordResetConfirmView(PasswordResetConfirmView):
 def my_page(request):
     if request.method == 'POST':
         form = UserChangeForm(data=request.POST, instance=request.user)
+
         if form.is_valid():
             user = form.save()
             user.save()
