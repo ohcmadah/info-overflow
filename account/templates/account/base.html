@@ -27,6 +27,8 @@
                     <h1>RESET PASSWORD</h1>
                     {% elif request.path == '/password_reset_done/' %}
                     <h1>SENT</h1>
+                    {% elif request.path == '/deactivate/' %}
+                    <h1>DEACTIVATE</h1>
                     {% else %}
                     <ul class="nav-department">
                         <li>Software</li>
@@ -42,7 +44,7 @@
                     {% elif request.path == '/login/' or request.path == '/logout/' %}
                     <button class="btn-sign-up">sign up</button>
                     {% elif request.path == '/change_password/' or request.path == '/password_reset/' or '/reset/' in request.path or request.path == '/password_reset_done/'  %}
-                    <div style="width: 15vw;"></div>
+                    <div style="width: 15vw;">
                     {% else %}
                     <div class="nav-user">
                         <div class="btn_user">

@@ -1,6 +1,17 @@
 /* Container */
 #container {
+    min-height: 80vh;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-container {
+    margin-left: 65px;
+    margin-right: 65px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #profile {
@@ -16,6 +27,7 @@ h1 {
     font-size: 1.4rem;
     margin-top: 0;
     margin-bottom: 40px;
+    margin-left: 65px;
 }
 
 /* Text Second Title */

@@ -1,0 +1,21 @@
+{% extends 'account/base.html' %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'account/css/delete_user.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div id="container">
+    <form method="post" action="{% url 'deactivate' %}" id="deactivate_form">
+        {% csrf_token %}
+        <h1>Deactivate</h1>
+        <span class="message">Are you sure you want to deactivate your account?</span>
+        <input type="submit" value="deactivate" class="btn-deactivate" />
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'account/js/delete_user.js' %}"></script>
+{% endblock scripts %}

@@ -105,3 +105,10 @@ def my_page(request):
             posts[date] += [post]
         posts[date] = [post]
     return render(request, 'account/my_page.html', {'posts': posts})
+
+@login_required
+def delete_user(request):
+    if request.method == 'POST':
+        request.user.delete()
+        return redirect('/')
+    return render(request, 'account/delete_user.html')
