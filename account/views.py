@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse_lazy
 
-from .forms import UserCreationForm
+from blog.models import Post
+from .forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 
@@ -81,3 +82,26 @@ class MyPasswordResetConfirmView(PasswordResetConfirmView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+
+@login_required
+def my_page(request):
+    if request.method == 'POST':
+        form = UserChangeForm(data=request.POST, instance=request.user)
+
+        if form.is_valid():
+            user = form.save()
+            user.save()
+            messages.info(request, 'Your profile was successfully updated!')
+            return redirect('/my_page')
+        else:
+            messages.info(request, 'Please correct the error below')
+            return redirect('/my_page')
+
+    filter_posts = list(Post.objects.filter(user=request.user))
+    posts = {}
+    for post in filter_posts:
+        date = str(post.published_date)[:7]
+        if date in posts:
+            posts[date] += [post]
+        posts[date] = [post]
+    return render(request, 'account/my_page.html', {'posts': posts})
