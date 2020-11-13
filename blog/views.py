@@ -10,6 +10,23 @@ def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
+def post_software_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), category='Software').order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_websolution_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), category='Web Solution').order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_design_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), category='Design').order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_other_list(request):
+    posts = Post.objects.filter(published_date__lte=timezone.now(), category='Other').order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts})
+
+
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == 'POST':

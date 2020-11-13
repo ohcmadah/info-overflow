@@ -31,10 +31,18 @@
                     <h1>DEACTIVATE</h1>
                     {% else %}
                     <ul class="nav-department">
-                        <li>Software</li>
-                        <li>Web Solution</li>
-                        <li>Design</li>
-                        <li>Other</li>
+                        <li class="{% if request.path == '/software/' %}decoration{% endif %}">
+                            <a href="{% url 'blog:software' %}">Software</a>
+                        </li>
+                        <li class="{% if request.path == '/websolution/' %}decoration{% endif %}">
+                            <a href="{% url 'blog:websolution' %}">Web Solution</a>
+                        </li>
+                        <li class="{% if request.path == '/design/' %}decoration{% endif %}">
+                            <a href="{% url 'blog:design' %}">Design</a>
+                        </li>
+                        <li class="{% if request.path == '/other/' %}decoration{% endif %}">
+                            <a href="{% url 'blog:other' %}">Other</a>
+                        </li>
                     </ul>
                     {% endif %}
                 </li>
@@ -44,7 +52,7 @@
                     {% elif request.path == '/login/' or request.path == '/logout/' %}
                     <button class="btn-sign-up">sign up</button>
                     {% elif request.path == '/change_password/' or request.path == '/password_reset/' or '/reset/' in request.path or request.path == '/password_reset_done/'  %}
-                    <div style="width: 15vw;">
+                    <div style="width: 15vw;"></div>
                     {% else %}
                     <div class="nav-user">
                         <div class="btn_user">

@@ -20,9 +20,14 @@ nav .header {
     padding: 0px;
 }
 
-.nav-department li {
+.nav-department a {
     margin-right: 5vw;
-    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.decoration {
+    font-weight: bold;
 }
 
 /* List Style */
