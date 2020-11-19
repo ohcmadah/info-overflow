@@ -71,6 +71,7 @@
         </div>
         <div id="post">
             <h2>post</h2>
+            <span>작성한 글이 {{ count }}개 있습니다.</span>
             <ul class="my-post-container">
                 {% for post_list in posts.values %}
                     {% if post_list %}
