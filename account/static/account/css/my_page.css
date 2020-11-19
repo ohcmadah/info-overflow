@@ -52,7 +52,6 @@ h1 {
 h2 {
     font-size: 1.2rem;
     margin-top: 0;
-    margin-bottom: 40px;
 }
 
 /* Card View */
@@ -201,6 +200,10 @@ h2 {
 }
 
 /* Post */
+.my-post-container {
+    margin-top: 40px;
+}
+
 .my-post-container li::marker {
     color: #DC8962;
 }

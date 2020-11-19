@@ -97,15 +97,15 @@ def my_page(request):
             messages.info(request, 'Please correct the error below')
             return redirect('/my_page')
 
-    filter_posts = list(Post.objects.filter(user=request.user))
+    filter_posts = Post.objects.filter(user=request.user)
     posts = {}
-    for post in filter_posts:
+    for post in list(filter_posts):
         date = str(post.published_date)[:7]
         if date in posts:
             posts[date].append(post)
         else:
             posts[date] = [post]
-    return render(request, 'account/my_page.html', {'posts': posts})
+    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count()})
 
 @login_required
 def delete_user(request):
