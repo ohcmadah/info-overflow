@@ -5,10 +5,11 @@ app_name = 'blog'
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
-    path('software/', views.post_software_list, name='software'),
-    path('websolution/', views.post_websolution_list, name='websolution'),
-    path('design/', views.post_design_list, name='design'),
-    path('other/', views.post_other_list, name='other'),
+    path('software/', views.post_list, name='software'),
+    path('websolution/', views.post_list, name='websolution'),
+    path('design/', views.post_list, name='design'),
+    path('other/', views.post_list, name='other'),
+    path('popular/', views.post_list, name='popular'),
 
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new', views.post_new, name='post_new'),

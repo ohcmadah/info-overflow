@@ -10,7 +10,7 @@
 }
 
 /* Write Button */
-.write-container {
+.header-container {
     display: flex;
     justify-content: flex-end;
 }
@@ -34,6 +34,28 @@
     text-decoration: none;
 
     cursor: pointer;
+}
+
+/* Select CSS */
+ #sort-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #F9F9F9 url('../img/tri_grey.png') no-repeat 90% 50%;
+     background-size: 10%;
+
+    width: 10vw;
+    min-width: 150px;
+    height: 40px;
+    padding: 10px 30px;
+    margin-right: 10px;
+
+    font-size: 1rem;
+    border: 0;
+    border-radius: 10px;
+}
+#sort-select:focus{
+    outline: 0;
 }
 
 /* Left Box */

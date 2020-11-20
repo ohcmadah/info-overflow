@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
@@ -7,7 +8,18 @@ from .forms import PostForm, CommentForm
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+    if request.method == "GET":
+        posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+        if request.path == "/popular/":
+            posts = Post.objects.annotate(comment_count=Count('comments')).order_by('comment_count')
+        elif request.path == "/software/":
+            posts = posts.filter(category='Software')
+        elif request.path == "/websolution/":
+            posts = posts.filter(category='Web Solution')
+        elif request.path == "/design/":
+            posts = posts.filter(category='Design')
+        elif request.path == "/other/":
+            posts = posts.filter(category='Other')
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 def post_software_list(request):
