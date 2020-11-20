@@ -44,6 +44,8 @@ nav li {
 }
 .logo img {
     width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 /* User Menu */
