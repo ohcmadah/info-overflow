@@ -22,9 +22,13 @@
     {% endfor %}
 {% endif %}
 <div id="container">
-    <div class="write-container">
-    <a class="btn-write" href="{% url 'blog:post_new' %}">Write</a>
-</div>
+    <div class="header-container">
+        <select name="sorted" id="sort-select">
+            <option value="latest">Latest</option>
+            <option value="popular">Popular</option>
+        </select>
+        <a class="btn-write" href="{% url 'blog:post_new' %}">Write</a>
+    </div>
 {% for post in posts.reverse %}
     <div class="post-box">
         <div class="left-box">
