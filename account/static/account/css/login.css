@@ -45,34 +45,14 @@ input[type='password']{
     height: 80px;
     background-color: #F9F9F9;
     border-radius: 20px;
-    border: 0px;
+    border: 0;
+    font-size: 1rem;
     padding-left: 34px;
 }
 
 .sign-in-input input[type='text'],
 input[type='password']:focus {
     outline: 0;
-}
-
-.sign-in-input input[type='text'],
-input[type='password']::placeholder {
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.sign-in-input input[type='text'],
-input[type='password']::-moz-placeholder {
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.sign-in-input input[type='text'],
-input[type='password']::-ms-input-placeholder {
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-.sign-in-input input[type='text'],
-input[type='password']::-webkit-input-placeholder {
-    font-size: 1rem;
-    text-transform: uppercase;
 }
 
 /* Forgot Password */
