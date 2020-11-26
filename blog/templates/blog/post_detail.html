@@ -26,6 +26,10 @@
                     <a href="{% url 'blog:post_remove' pk=post.pk %}">remove</a>
                 </div>
             </div>
+            {% elif user.is_superuser %}
+            <div class="btn-remove">
+                <a href="{% url 'blog:post_remove' pk=post.pk %}">remove</a>
+            </div>
             {% endif %}
         </div>
         <p class="post-content">{{ post.content|linebreaksbr }}</p>
@@ -46,6 +50,10 @@
                         <div id="line-{{ comment.pk }}" class="line" style="height: 10px"></div>
                         <a id="remove-btn-{{ comment.pk }}" href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn-comment-remove">remove</a>
                         <input id="save-btn-{{ comment.pk }}" type="submit" class="btn-comment-save invisible" value="save">
+                    </div>
+                    {% elif user.is_superuser %}
+                    <div class="comment-buttons">
+                        <a href="{% url 'blog:comment_remove' pk=comment.pk %}" class="btn-comment-remove">remove</a>
                     </div>
                     {% endif %}
                 </div>
