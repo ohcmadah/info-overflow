@@ -1,4 +1,6 @@
 const btnCommentEditAll = document.querySelectorAll(".btn-comment-edit");
+const btnCommentRemoveAll = document.querySelectorAll(".btn-comment-remove");
+const btnPostRemove= document.querySelector(".btn-remove a");
 let btnCommentSave;
 
 function setEvent() {
@@ -15,12 +17,39 @@ function setEvent() {
             });
         })
     }
+
     if (btnCommentSave) {
         btnCommentSave.addEventListener('click', event => {
             event.preventDefault();
             myToggle();
             commentEditForm.submit();
         });
+    }
+
+    if (btnCommentRemoveAll) {
+        btnCommentRemoveAll.forEach(btnCommentRemove => {
+            btnCommentRemove.addEventListener('click', evt => {
+                evt.preventDefault();
+
+                const result = confirm("댓글을 삭제하시겠습니까?");
+                if (result) {
+                    const removeUrl = evt.target.getAttribute("href");
+                    location.href = removeUrl;
+                }
+            })
+        })
+    }
+
+    if (btnPostRemove) {
+        btnPostRemove.addEventListener('click', evt => {
+             evt.preventDefault();
+
+                const result = confirm("게시글을 삭제하시겠습니까?");
+                if (result) {
+                    const removeUrl = evt.target.getAttribute("href");
+                    location.href = removeUrl;
+                }
+        })
     }
 }
 
