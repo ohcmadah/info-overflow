@@ -22,7 +22,7 @@
                     <option value="Design">DESIGN</option>
                 </select>
                 {% else %}
-                <input id="{{ field.id_for_label }}" name="{{ field.name }}" type="{{ field.field.widget.input_type }}" placeholder="{{ field.label }}">
+                <input id="{{ field.id_for_label }}" name="{{ field.name }}" type="{{ field.field.widget.input_type }}" placeholder="{{ field.label|upper}}">
                 {% endif %}
             </div>
             {% for error in field.errors %}
