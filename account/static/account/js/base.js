@@ -38,7 +38,10 @@ function setEvent() {
                 if (menu.innerText === "My page") {
                     location.href = '/my_page/';
                 } else {
-                    location.href = '/logout/'
+                    const result = confirm("로그아웃 하시겠습니까?");
+                    if (result) {
+                        location.href = '/logout/'
+                    }
                 }
             });
         })
