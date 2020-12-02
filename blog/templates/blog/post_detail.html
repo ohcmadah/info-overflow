@@ -15,7 +15,7 @@
                 <div class="line"></div>
                 <span>{{ post.category }}</span>
                 <div class="line"></div>
-                <span>{{ post.user.get_name }}</span>
+                <span>{{ post.user.get_name }}({{ post.user.get_user_department }})</span>
             </div>
             {% if post.user.get_name == user.get_name %}
             <div class="buttons">
