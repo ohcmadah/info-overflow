@@ -69,6 +69,10 @@
 }
 
 /* Comment */
+.tagable {
+    cursor: pointer;
+}
+
 .comment-container {
     margin-top: 200px;
     display: flex;

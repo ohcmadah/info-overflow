@@ -3,6 +3,9 @@ const btnCommentRemoveAll = document.querySelectorAll(".btn-comment-remove");
 const btnPostRemove= document.querySelector(".btn-remove a");
 let btnCommentSave;
 
+const btnCommentTagAll = document.querySelectorAll('.tagable');
+const textareaComment = document.querySelector('.textarea-comment');
+
 function setEvent() {
     if (btnCommentEditAll) {
         btnCommentEditAll.forEach(btnCommentEdit => {
@@ -49,6 +52,19 @@ function setEvent() {
                     const removeUrl = evt.target.getAttribute("href");
                     location.href = removeUrl;
                 }
+        })
+    }
+
+    if (btnCommentTagAll) {
+        btnCommentTagAll.forEach(btnCommentTag => {
+            btnCommentTag.addEventListener('click', evt => {
+                const clickName = btnCommentTag.querySelector('.comment-info div span').innerText;
+                if (textareaComment.value !== '') {
+                    textareaComment.value += '\n';
+                }
+                textareaComment.value += `@${clickName}\n`;
+                textareaComment.focus();
+            })
         })
     }
 }
