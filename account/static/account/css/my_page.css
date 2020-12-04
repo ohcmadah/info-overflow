@@ -84,8 +84,21 @@ h2 {
 }
 
 .profile-name,
-.profile-department {
+.profile-department,
+.profile-email {
     margin-bottom: 30px;
+}
+
+.profile-grade {
+    display: flex;
+    align-items: center;
+}
+
+.img-grade {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 10px;
 }
 
 /* Edit */
