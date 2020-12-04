@@ -60,7 +60,7 @@ function setEvent() {
     if (btnCommentTagAll) {
         btnCommentTagAll.forEach(btnCommentTag => {
             btnCommentTag.addEventListener('click', evt => {
-                const clickName = btnCommentTag.querySelector('.comment-info div span').innerText;
+                const clickName = btnCommentTag.querySelector('.comment-info span').innerText;
                 let textarea;
                 if (editing) {
                     textarea = document.querySelector(`#edit-textarea-${pk} textarea`);

@@ -53,8 +53,8 @@
                     <div class="comment-info">
                         <span>{{ comment.user.get_name }} ({{ comment.user.get_user_department }})</span>
                         <img
-                            src="/static/account/img/{{ post.user.get_user_grade }}.png"
-                            alt="{{ post.user.get_user_grade }}"
+                            src="/static/account/img/{{ comment.user.get_user_grade }}.png"
+                            alt="{{ comment.user.get_user_grade }}"
                             class="img-grade"
                         />
                         <span>{{ comment.published_date|date:"Y. m. d H:i" }}</span>
