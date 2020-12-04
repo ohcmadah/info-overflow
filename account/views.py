@@ -108,14 +108,7 @@ def my_page(request):
         else:
             posts[date] = [post]
 
-    grade_list = ['mercury', 'venus', 'earth', 'mars', 'jupiter']
-    user_count = filter_posts.count() + Comment.objects.filter(user=request.user).count()
-    if user_count <= (len(grade_list) - 1) * 4:
-        grade = grade_list[math.ceil(user_count/4)]
-    else:
-        grade = grade_list[4]
-
-    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count(), 'grade': grade})
+    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count(), 'grade': request.user.get_user_grade()})
 
 @login_required
 def delete_user(request):

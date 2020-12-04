@@ -152,6 +152,14 @@ nav button:focus {
     outline: none;
 }
 
+/* Image Grade */
+.img-grade {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    margin-left: 10px;
+}
+
 /* Media Query */
 @media (max-width: 900px) {
     .nav-department {
