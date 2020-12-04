@@ -94,13 +94,6 @@ h2 {
     align-items: center;
 }
 
-.img-grade {
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-    margin-left: 10px;
-}
-
 /* Edit */
 .btn-name-edit,
 .btn-department-edit {
