@@ -57,6 +57,11 @@
                     <label>e-mail</label>
                     <span>{{ user.get_user_email }}</span>
                 </div>
+                <div class="profile-grade">
+                    <label>grade</label>
+                    <span>{{ grade }}</span>
+                    <img src="/static/account/img/{{ grade }}.png" alt="{{ grade }}" class="img-grade" />
+                </div>
             </div>
             <div class="bottom-menu">
                 <div class="change-password-menu">

@@ -1,3 +1,5 @@
+import math
+
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView
@@ -5,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.urls import reverse_lazy
 
-from blog.models import Post
+from blog.models import Post, Comment
 from .forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
@@ -105,7 +107,15 @@ def my_page(request):
             posts[date].append(post)
         else:
             posts[date] = [post]
-    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count()})
+
+    grade_list = ['mercury', 'venus', 'earth', 'mars', 'jupiter']
+    user_count = filter_posts.count() + Comment.objects.filter(user=request.user).count()
+    if user_count <= (len(grade_list) - 1) * 4:
+        grade = grade_list[math.ceil(user_count/4)]
+    else:
+        grade = grade_list[4]
+
+    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count(), 'grade': grade})
 
 @login_required
 def delete_user(request):
