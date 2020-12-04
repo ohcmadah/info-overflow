@@ -37,7 +37,12 @@
     <div class="comment-container">
         {% for comment in post.comments.all %}
         <div class="comment">
-            <form action="{% url 'blog:comment_edit' pk=comment.pk %}" method="post" id="comment-edit-form" >
+            <form
+                    action="{% url 'blog:comment_edit' pk=comment.pk %}"
+                    method="post"
+                    id="comment-edit-form"
+                    class="{% if not comment.user.get_name == user.get_name %}tagable{% endif %}"
+            >
                 {% csrf_token %}
                 <div class="comment-info">
                     <div>
@@ -74,7 +79,7 @@
             </div>
             <form method="post" class="input-box">
                 {% csrf_token %}
-                <textarea name="content" placeholder="comment..."></textarea>
+                <textarea name="content" placeholder="comment..." class="textarea-comment"></textarea>
                 <input type="submit" value="submit" />
             </form>
         </div>
