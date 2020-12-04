@@ -50,6 +50,11 @@
             <div class="user-name-container">
                 <span class="user-name">{{ post.user.get_name }}</span>
                 <span>({{ post.user.get_user_department }})</span>
+                <img
+                    src="/static/account/img/{{ post.user.get_user_grade }}.png"
+                    alt="{{ post.user.get_user_grade }}"
+                    class="img-grade"
+                />
             </div>
         </div>
     </div>
