@@ -47,6 +47,11 @@ class User(AbstractBaseUser, PermissionsMixin):
         verbose_name=_('department'),
         max_length=20,
     )
+    grade = models.CharField(
+        verbose_name=_('grade'),
+        max_length=50,
+        default='mercury'
+    )
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
 
@@ -77,6 +82,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_user_email(self):
         return self.email
+
+    def get_user_grade(self):
+        return self.grade
+
+    def set_user_grade(self, grade):
+        self.grade = grade
+        self.save()
 
     @property
     def is_staff(self):

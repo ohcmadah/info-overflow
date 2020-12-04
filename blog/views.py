@@ -1,3 +1,5 @@
+import math
+
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404, redirect
@@ -33,6 +35,8 @@ def post_detail(request, pk):
             comment.user = request.user
             comment.publish()
             comment.save()
+
+            request.user.set_user_grade(cal_user_grade(request.user))
             return redirect('blog:post_detail', pk=post.pk)
 
     return render(request, 'blog/post_detail.html', {'post': post})
@@ -46,6 +50,8 @@ def post_new(request):
             post.user = request.user
             post.publish()
             post.save()
+
+            request.user.set_user_grade(cal_user_grade(request.user))
             return redirect('blog:post_detail', pk=post.pk)
     else:
         form = PostForm()
@@ -69,12 +75,14 @@ def post_edit(request, pk):
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
+    request.user.set_user_grade(cal_user_grade(request.user))
     return redirect('blog:post_list')
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
+    request.user.set_user_grade(cal_user_grade(request.user))
     return redirect('blog:post_detail', pk=comment.post.pk)
 
 @login_required
@@ -90,3 +98,13 @@ def comment_edit(request, pk):
             return redirect('blog:post_detail', pk=comment.post.pk)
 
     return render(request, 'blog/post_detail.html', {'post': comment.post})
+
+
+def cal_user_grade(user):
+    grade_list = ['mercury', 'venus', 'earth', 'mars', 'jupiter']
+    user_count = Post.objects.filter(user=user).count() + Comment.objects.filter(user=user).count()
+    if user_count <= (len(grade_list) - 1) * 4:
+        grade = grade_list[math.ceil(user_count / 4)]
+    else:
+        grade = grade_list[4]
+    return grade
