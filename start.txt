@@ -1,7 +1,7 @@
 Terminal에서
 1. 파이썬 설치 경로 -m venv infovenv   # 가상환경 만들기
 2. infovenv\Scripts\activate        # 가상환경 실행
-3. 장고 설치
+3. pip install -r requirements.txt
 4. python manage.py makemigrations
 5. python manage.py migrate
 6. python manage.py runserver
