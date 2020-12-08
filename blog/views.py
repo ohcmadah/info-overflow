@@ -12,16 +12,19 @@ from .forms import PostForm, CommentForm
 def post_list(request):
     if request.method == "GET":
         posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-        if request.path == "/popular/":
+
+        if request.GET.get('sort') == 'popular':
             posts = Post.objects.annotate(comment_count=Count('comments')).order_by('comment_count')
-        elif request.path == "/software/":
+
+        if request.GET.get('category') == 'software':
             posts = posts.filter(category='Software')
-        elif request.path == "/websolution/":
+        elif request.GET.get('category') == 'websolution':
             posts = posts.filter(category='Web Solution')
-        elif request.path == "/design/":
+        elif request.GET.get('category') == 'design':
             posts = posts.filter(category='Design')
-        elif request.path == "/other/":
+        elif request.GET.get('category') == 'other':
             posts = posts.filter(category='Other')
+
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
