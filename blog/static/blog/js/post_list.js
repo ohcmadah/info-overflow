@@ -5,7 +5,11 @@ function setEvent() {
         sortSelect.addEventListener('change', (evt) => {
             const value = sortSelect.value;
             if (value === 'popular') {
-                location.href = `/${value}`
+                if (location.search.includes('category')) {
+                    location.href = `${location.search}&sort=popular`
+                } else {
+                    location.href = '?sort=popular'
+                }
             } else {
                 location.href = '/'
             }
@@ -15,7 +19,7 @@ function setEvent() {
 
 function init() {
     setEvent();
-    if (location.pathname === "/popular/") {
+    if (location.search.includes('popular')) {
         sortSelect[1].selected = true;
     }
 }

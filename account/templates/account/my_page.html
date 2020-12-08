@@ -59,8 +59,8 @@
                 </div>
                 <div class="profile-grade">
                     <label>grade</label>
-                    <span>{{ grade }}</span>
-                    <img src="/static/account/img/{{ grade }}.png" alt="{{ grade }}" class="img-grade" />
+                    <span>{{ user.get_user_grade }}</span>
+                    <img src="/static/account/img/{{ user.get_user_grade }}.png" alt="{{ user.get_user_grade }}" class="img-grade" />
                 </div>
             </div>
             <div class="bottom-menu">

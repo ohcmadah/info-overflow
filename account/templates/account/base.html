@@ -32,16 +32,16 @@
                     {% else %}
                     <ul class="nav-department">
                         <li class="{% if request.path == '/software/' %}decoration{% endif %}">
-                            <a href="{% url 'blog:software' %}">Software</a>
+                            <a href="?category=software">Software</a>
                         </li>
                         <li class="{% if request.path == '/websolution/' %}decoration{% endif %}">
-                            <a href="{% url 'blog:websolution' %}">Web Solution</a>
+                            <a href="?category=websolution">Web Solution</a>
                         </li>
                         <li class="{% if request.path == '/design/' %}decoration{% endif %}">
-                            <a href="{% url 'blog:design' %}">Design</a>
+                            <a href="?category=design">Design</a>
                         </li>
                         <li class="{% if request.path == '/other/' %}decoration{% endif %}">
-                            <a href="{% url 'blog:other' %}">Other</a>
+                            <a href="?category=other">Other</a>
                         </li>
                     </ul>
                     {% endif %}

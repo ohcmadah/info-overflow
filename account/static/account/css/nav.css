@@ -160,9 +160,3 @@ nav button:focus {
     margin-left: 10px;
 }
 
-/* Media Query */
-@media (max-width: 900px) {
-    .nav-department {
-        display: none;
-    }
-}
