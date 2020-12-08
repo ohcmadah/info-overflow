@@ -108,7 +108,11 @@ def my_page(request):
         else:
             posts[date] = [post]
 
-    return render(request, 'account/my_page.html', {'posts': posts, 'count': filter_posts.count(), 'grade': request.user.get_user_grade()})
+    context = {
+        'posts': posts,
+        'count': filter_posts.count(),
+    }
+    return render(request, 'account/my_page.html', context)
 
 @login_required
 def delete_user(request):
