@@ -39,7 +39,7 @@ def post_detail(request, pk):
             comment.publish()
             comment.save()
 
-            request.user.set_user_grade(cal_user_grade(request.user))
+            comment.user.set_user_grade(cal_user_grade(comment.user))
             return redirect('blog:post_detail', pk=post.pk)
 
     return render(request, 'blog/post_detail.html', {'post': post})
@@ -77,15 +77,20 @@ def post_edit(request, pk):
 @login_required
 def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    users = [post.user]
+    for comment in post.comments.all():
+        users.append(comment.user)
     post.delete()
-    request.user.set_user_grade(cal_user_grade(request.user))
+
+    for user in users:
+        user.set_user_grade(cal_user_grade(user))
     return redirect('blog:post_list')
 
 @login_required
 def comment_remove(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
     comment.delete()
-    request.user.set_user_grade(cal_user_grade(request.user))
+    comment.user.set_user_grade(cal_user_grade(comment.user))
     return redirect('blog:post_detail', pk=comment.post.pk)
 
 @login_required
